@@ -37,8 +37,44 @@ const selectOddNumbers = function(numbers){
   return oddNumbers;
 }
 
+const selectAlternateNum = function(numbers){
+  alternateNumbers = [];
+  let index = 0;
+  for(altIndex = 0 ; altIndex < numbers.length ; altIndex=altIndex+2){
+    alternateNumbers[index++] = numbers[altIndex];
+  }
+  return alternateNumbers;
+}
+const reverseList = function(numbers){
+  let reversedList = [];
+  let length = numbers.length;
+  for(let index = length-1 ; index >= 0 ; index--){
+    reversedList[length - index - 1] = numbers[index];
+  }
+  return reversedList;
+}
+
+const generateFibSeries = function(length){
+  previousNum = 1;
+  secondPrevNum = 0;
+  fibSeries = [secondPrevNum,previousNum];
+  for(let sno = 2; sno < length ; sno++){
+    fibSeries[sno] = previousNum + secondPrevNum;
+    previousNum = secondPrevNum + (secondPrevNum = previousNum) ;
+  }
+  return fibSeries;
+}
+
+const fibReverse = function(length){
+  return reverseList(generateFibSeries(length));
+}
+
+exports.fibReverse = fibReverse;
+exports.generateFibSeries =generateFibSeries;
+exports.reverseList = reverseList;
 exports.selectOddNumbers = selectOddNumbers;
 exports.isOdd = isOdd;
 exports.selectEvenNumbers = selectEvenNumbers;
 exports.isEven = isEven;
 exports.sum= sum;
+exports.selectAlternateNum = selectAlternateNum;
