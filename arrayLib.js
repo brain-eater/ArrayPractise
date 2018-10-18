@@ -54,6 +54,11 @@ const reverseList = function(numbers){
   return reversedList;
 }
 
+const printReverseList = function(list){
+  console.log(reverseList(list));
+}
+
+
 const generateFibSeries = function(length){
   previousNum = 1;
   secondPrevNum = 0;
@@ -69,6 +74,16 @@ const fibReverse = function(length){
   return reverseList(generateFibSeries(length));
 }
 
+const countEven = function(numbers){
+  oddNumbers = selectEvenNumbers(numbers);
+  return oddNumbers.length;
+}
+
+const countOdd = function(numbers){
+  oddNumbers = selectOddNumbers(numbers);
+  return oddNumbers.length;
+}
+
 const max = function(numbers){
   let max = numbers[0];
   for( let number of numbers){
@@ -79,13 +94,68 @@ const max = function(numbers){
   return max;
 }
 
+const min = function(numbers){
+  let min = numbers[0];
+  for( let number of numbers){
+    if(min > number){
+      min = number
+    }
+  }
+  return min;
+}
+
+
+const mapLengths = function(list){
+  let lengths = [];
+  for(let element of list){
+    lengths.push(element.length);
+  }
+  return lengths;
+}
+
 const average = function(numbers){
   let total = sum(numbers);
   return total/numbers.length;
 }
 
+const countBelowThreshold =function(numbers,threshold){
+  let count = 0;
+  for(number of numbers){
+    if(number > threshold){
+      count++;
+    }
+  }
+  return count;
+}
+
+const getIndex = function(list,element){
+  let pos = -1;
+  for(index in list){
+    if(list[index] == element){
+    pos = index;
+    }
+  }
+  return pos;
+}
+
+
+
+const countAboveThreshold =function(numbers,threshold){
+  let count = 0;
+  for(number of numbers){
+    if(number > threshold){
+      count++;
+    }
+  }
+  return count;
+}
+
+
+exports.countEven = countEven;
+exports.mapLengths = mapLengths;
 exports.average = average;
 exports.max = max ;
+exports.min  = min ;
 exports.fibReverse = fibReverse;
 exports.generateFibSeries =generateFibSeries;
 exports.reverseList = reverseList;
@@ -93,5 +163,10 @@ exports.selectOddNumbers = selectOddNumbers;
 exports.isOdd = isOdd;
 exports.selectEvenNumbers = selectEvenNumbers;
 exports.isEven = isEven;
-exports.sum= sum;
+exports.sum = sum;
 exports.selectAlternateNum = selectAlternateNum;
+exports.countOdd = countOdd ;
+exports.countAboveThreshold = countAboveThreshold; 
+exports.countBelowThreshold = countBelowThreshold; 
+exports.printReverseList = printReverseList;
+exports.getIndex = getIndex;
