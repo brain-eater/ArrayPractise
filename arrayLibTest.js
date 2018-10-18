@@ -3,6 +3,8 @@ let lib = require("./arrayLib");
 let {selectAlternateNum} = lib;
 let {generateFibSeries} = lib;
 let {fibReverse} = lib;
+let {max} = lib;
+let {average} = lib;
 
 //to test selectAlternateNum()
 assert.deepEqual(selectAlternateNum([1,2]),[1]);
@@ -21,4 +23,11 @@ assert.deepEqual(fibReverse(5),[3,2,1,1,0]);
 assert.deepEqual(fibReverse(6),[5,3,2,1,1,0]);
 
 //to test max(numbers)
+assert.deepEqual(max([6,2,3]),6);
+assert.deepEqual(max([6,2,3,62]),62);
 assert.deepEqual(max([6,2,3,61,535]),535);
+
+// to test average(numbers)
+assert.deepEqual(average([2,4]),3);
+assert.deepEqual(average([34,43,5,2,4]),17.6);
+assert.deepEqual(average([2,43,43,44]),33);

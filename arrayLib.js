@@ -69,6 +69,23 @@ const fibReverse = function(length){
   return reverseList(generateFibSeries(length));
 }
 
+const max = function(numbers){
+  let max = numbers[0];
+  for( let number of numbers){
+    if(max < number){
+      max = number
+    }
+  }
+  return max;
+}
+
+const average = function(numbers){
+  let total = sum(numbers);
+  return total/numbers.length;
+}
+
+exports.average = average;
+exports.max = max ;
 exports.fibReverse = fibReverse;
 exports.generateFibSeries =generateFibSeries;
 exports.reverseList = reverseList;
