@@ -205,19 +205,22 @@ const difference = function(set1,set2){
   set1 = unique(set1);
   set2 = unique(set2);
   let differenceSet = [];
-  for(let element of set1){
+  set1Dif = differenceFrom(set1,set2);
+  differenceSet = differenceSet.concat(set1Dif);
+  set2Dif = differenceFrom(set2,set1);
+  differenceSet = differenceSet.concat(set2Dif);
+  return differenceSet;
+}
+
+const differenceFrom = function(set1,set2){
+  let differenceSet = [];
+ for(let element of set1){
     if(getIndex(set2,element) == -1 ){
-      differenceSet.push(element);
-    }
-  }
-  for(let element of set2){
-    if(getIndex(set1,element) == -1 ){
       differenceSet.push(element);
     }
   }
   return differenceSet;
 }
-
 
 
 const union = function(set1,set2){
@@ -234,6 +237,31 @@ const isSubSet = function(powerSet,set){
     }
   }
   return true;
+}
+
+const findSmaller = function(list1,list2){
+  if(list1.length <= list2.length){
+    return list1;
+  }
+  return list2;
+}
+
+const findLarger = function(list1,list2){
+  if(list1.length > list2.length){
+    return list1;
+  }
+  return list2;
+}
+
+
+const zip = function(list1,list2){
+  zippedList = [];
+  smallerSet = findSmaller(list1,list2);
+  largerSet = findLarger(list1,list2);
+  for(index in smallerSet){
+    zippedList.push([smallerSet[index],largerSet[index]]);
+  }
+  return zippedList;
 }
 
 
@@ -264,3 +292,5 @@ exports.extract = extract;
 exports.isInDescending = isInDescending;
 exports.unique = unique;
 exports.difference = difference;
+exports.zip = zip;
+export.rotate = rotate;

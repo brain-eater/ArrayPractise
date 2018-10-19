@@ -22,6 +22,7 @@ let {extract} = lib;
 let {unique} = lib; 
 let {union} = lib;
 let {isSubSet} =lib;
+let {zip} = lib;
 
 //to test reverseList(list)
 assert.deepEqual(reverseList([2,4,2,4,6,1]),[1,6,4,2,4,2]);
@@ -127,3 +128,10 @@ assert.deepEqual(difference([1],[1]),[]);
 assert.deepEqual(isSubSet([1,2,3],[1]),true);
 assert.deepEqual(isSubSet([1,3],[1,3,4]),false);
 assert.deepEqual(isSubSet([1,3,3,455,3,53,55,],[1,3,53]),true);
+
+//to test zip(list1,list2)
+assert.deepEqual(zip([1,2],[2,4]),[[1,2],[2,4]]);
+assert.deepEqual(zip([1,2,3,5,2,9],[2,4,2,4,5]),[[2,1],[4,2],[2,3],[4,5],[5,2]]);
+
+//to check rotate()
+assert.deepEqual(rotate([1,2,3,4,5],2),[3,4,5,1,2]);
