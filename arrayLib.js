@@ -192,8 +192,8 @@ const unique = function(numbers){
 const intersection = function(set1,set2){
   set1 = unique(set1);
   set2 = unique(set2);
-  intersectionSet = [];
-  for(element of set1){
+  let intersectionSet = [];
+  for(let element of set1){
     if(getIndex(set2,element) != -1 ){
       intersectionSet.push(element);
     }
@@ -201,6 +201,31 @@ const intersection = function(set1,set2){
   return intersectionSet;
 }
 
+const difference = function(set1,set2){
+  set1 = unique(set1);
+  set2 = unique(set2);
+  let differenceSet = [];
+  for(let element of set1){
+    if(getIndex(set2,element) == -1 ){
+      differenceSet.push(element);
+    }
+  }
+  for(let element of set2){
+    if(getIndex(set1,element) == -1 ){
+      differenceSet.push(element);
+    }
+  }
+  return differenceSet;
+}
+
+
+
+const union = function(set1,set2){
+  let unionSet = [];
+  unionSet = unionSet.concat(set1);
+  unionSet = unionSet.concat(set2);
+  return unique(unionSet);
+}
 
 exports.union = union;
 exports.intersection = intersection;
@@ -227,3 +252,4 @@ exports.isInAscending = isInAscending;
 exports.extract = extract;
 exports.isInDescending = isInDescending;
 exports.unique = unique;
+exports.difference = difference;

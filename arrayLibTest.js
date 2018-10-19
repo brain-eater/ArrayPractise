@@ -10,6 +10,7 @@ let {min} = lib;
 let {countEven} = lib;
 let {countOdd} = lib;
 let {intersection} = lib;
+let {difference} = lib;
 let {average} = lib;
 let {mapLengths} = lib;
 let {countAboveThreshold} = lib;
@@ -112,6 +113,13 @@ assert.deepEqual(intersection([1,2],[2,3,4,5]),[2]);
 assert.deepEqual(intersection([1,2],[1]),[1]);
 
 //to test union(set1,set2)
-assert.deepEqual(union([1,2,3,5,7],[2,3,4,5]),[2,3,5]);
-assert.deepEqual(union([1,2],[2,3,4,5]),[2]);
-assert.deepEqual(union([1,2],[1]),[1]);
+assert.deepEqual(union([1,2,3,5,7],[2,3,4,5]),[1,2,3,5,7,4]);
+assert.deepEqual(union([1,2],[2,3,4,5]),[1,2,3,4,5]);
+assert.deepEqual(union([1,2],[1]),[1,2]);
+
+//to test difference(set1,set2)
+assert.deepEqual(difference([1,2,3,5,7],[2,3,4,5]),[1,7,4]);
+assert.deepEqual(difference([1,2],[2,3,4,5]),[1,3,4,5]);
+assert.deepEqual(difference([1],[1]),[]);
+
+
