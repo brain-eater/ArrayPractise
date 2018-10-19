@@ -189,18 +189,21 @@ const unique = function(numbers){
   return uniqueNumbers;
 }
 
-const union = function(set1,set2){
-  unionSet = [];
+const intersection = function(set1,set2){
+  set1 = unique(set1);
+  set2 = unique(set2);
+  intersectionSet = [];
   for(element of set1){
     if(getIndex(set2,element) != -1 ){
-      unionSet.push(element);
+      intersectionSet.push(element);
     }
   }
-  return unionSet;
+  return intersectionSet;
 }
 
 
 exports.union = union;
+exports.intersection = intersection;
 exports.countEven = countEven;
 exports.mapLengths = mapLengths;
 exports.average = average;

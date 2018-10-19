@@ -9,7 +9,7 @@ let {max} = lib;
 let {min} = lib;
 let {countEven} = lib;
 let {countOdd} = lib;
-let {union} = lib;
+let {intersection} = lib;
 let {average} = lib;
 let {mapLengths} = lib;
 let {countAboveThreshold} = lib;
@@ -19,6 +19,7 @@ let {reverseList} = lib;
 let {getIndex} = lib;
 let {extract} = lib;
 let {unique} = lib; 
+let {union} = lib;
 
 //to test reverseList(list)
 assert.deepEqual(reverseList([2,4,2,4,6,1]),[1,6,4,2,4,2]);
@@ -105,5 +106,12 @@ assert.deepEqual(unique([2]),[2]);
 assert.deepEqual(unique([2,12,2,2,3,3,1]),[2,12,3,1]);
 assert.deepEqual(unique([2,12,3,1]),[2,12,3,1]);
 
+//to test intersection(set1,set2)
+assert.deepEqual(intersection([1,2,3,5,7],[2,3,4,5]),[2,3,5]);
+assert.deepEqual(intersection([1,2],[2,3,4,5]),[2]);
+assert.deepEqual(intersection([1,2],[1]),[1]);
+
 //to test union(set1,set2)
 assert.deepEqual(union([1,2,3,5,7],[2,3,4,5]),[2,3,5]);
+assert.deepEqual(union([1,2],[2,3,4,5]),[2]);
+assert.deepEqual(union([1,2],[1]),[1]);
