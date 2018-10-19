@@ -191,7 +191,12 @@ const unique = function(numbers){
 
 const union = function(set1,set2){
   unionSet = [];
-  for
+  for(element of set1){
+    if(getIndex(set2,element) != -1 ){
+      unionSet.push(element);
+    }
+  }
+  return unionSet;
 }
 
 
