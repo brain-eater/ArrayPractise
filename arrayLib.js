@@ -131,7 +131,7 @@ const countBelowThreshold =function(numbers,threshold){
 const getIndex = function(list,element){
   for(index in list){
     if(list[index] == element){
-    return index;
+      return index;
     }
   }
   return -1;
@@ -227,6 +227,17 @@ const union = function(set1,set2){
   return unique(unionSet);
 }
 
+const isSubSet = function(powerSet,set){
+  for(element of set){
+    if(getIndex(powerSet,element) == -1){
+      return false;
+    }
+  }
+  return true;
+}
+
+
+exports.isSubSet = isSubSet;
 exports.union = union;
 exports.intersection = intersection;
 exports.countEven = countEven;

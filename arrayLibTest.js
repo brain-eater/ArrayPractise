@@ -21,6 +21,7 @@ let {getIndex} = lib;
 let {extract} = lib;
 let {unique} = lib; 
 let {union} = lib;
+let {isSubSet} =lib;
 
 //to test reverseList(list)
 assert.deepEqual(reverseList([2,4,2,4,6,1]),[1,6,4,2,4,2]);
@@ -122,4 +123,7 @@ assert.deepEqual(difference([1,2,3,5,7],[2,3,4,5]),[1,7,4]);
 assert.deepEqual(difference([1,2],[2,3,4,5]),[1,3,4,5]);
 assert.deepEqual(difference([1],[1]),[]);
 
-
+//to test isSubSet(powerSet,set)
+assert.deepEqual(isSubSet([1,2,3],[1]),true);
+assert.deepEqual(isSubSet([1,3],[1,3,4]),false);
+assert.deepEqual(isSubSet([1,3,3,455,3,53,55,],[1,3,53]),true);
