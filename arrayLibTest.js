@@ -23,6 +23,8 @@ let {unique} = lib;
 let {union} = lib;
 let {isSubSet} =lib;
 let {zip} = lib;
+let {rotate} = lib;
+let {partitioner} = lib;
 
 //to test reverseList(list)
 assert.deepEqual(reverseList([2,4,2,4,6,1]),[1,6,4,2,4,2]);
@@ -135,3 +137,7 @@ assert.deepEqual(zip([1,2,3,5,2,9],[2,4,2,4,5]),[[2,1],[4,2],[2,3],[4,5],[5,2]])
 
 //to check rotate()
 assert.deepEqual(rotate([1,2,3,4,5],2),[3,4,5,1,2]);
+assert.deepEqual(rotate([1,2,5],1),[2,5,1]);
+
+//to check partitioner()
+assert.deepEqual(partitioner([1,23,5,10,100],10),[[1,5,10],[23,100]]);

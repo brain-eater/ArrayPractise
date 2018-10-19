@@ -264,7 +264,28 @@ const zip = function(list1,list2){
   return zippedList;
 }
 
+const rotate = function(list,limitIndex){
+  for(let index = 0;index < limitIndex ; index++){
+    list.push(list.shift());
+  }
+  return list;
+}
 
+const partitioner = function(numbers,threshold){
+  let partitionedNumbers = [[],[]];
+  for(number of numbers){
+    let isGreater = 1;
+    if(number <= threshold){
+      isGreater = 0;
+    }
+    partitionedNumbers[isGreater].push(number);
+  }
+  return partitionedNumbers;
+}
+
+
+
+exports.partitioner = partitioner;
 exports.isSubSet = isSubSet;
 exports.union = union;
 exports.intersection = intersection;
@@ -293,4 +314,4 @@ exports.isInDescending = isInDescending;
 exports.unique = unique;
 exports.difference = difference;
 exports.zip = zip;
-export.rotate = rotate;
+exports.rotate = rotate;
