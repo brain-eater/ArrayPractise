@@ -129,13 +129,12 @@ const countBelowThreshold =function(numbers,threshold){
 }
 
 const getIndex = function(list,element){
-  let pos = -1;
   for(index in list){
     if(list[index] == element){
-    pos = index;
+    return index;
     }
   }
-  return pos;
+  return -1;
 }
 
 
@@ -150,7 +149,53 @@ const countAboveThreshold =function(numbers,threshold){
   return count;
 }
 
+const isInAscending = function(numbers){ 
+  for(index = 0 ;index < numbers.length-1; index++){
+    if(numbers[index] > numbers[index+1]){
+      return false;
+    }
+  }
+  return true;
+}
 
+const isInDescending = function(numbers){ 
+  for( let index = 0 ;index < numbers.length-1; index++){
+    if(numbers[index] < numbers[index+1]){
+      return false;
+    }
+  }
+  return true;
+}
+
+
+const extract = function(number){
+  let digits = [];
+  while(number != 0){
+    digits.push(number%10);
+    number = number/10;
+    number = Math.floor(number)
+  }
+  digits = reverseList(digits);
+  return digits;
+}
+
+const unique = function(numbers){
+  let uniqueNumbers = [];
+  for(number of numbers){
+    if(getIndex(uniqueNumbers,number) == -1){
+      uniqueNumbers.push(number);
+    }
+  }
+  return uniqueNumbers;
+}
+
+const union = function(set1,set2){
+  unionSet = [];
+  for
+}
+
+
+exports.union = union;
 exports.countEven = countEven;
 exports.mapLengths = mapLengths;
 exports.average = average;
@@ -170,3 +215,7 @@ exports.countAboveThreshold = countAboveThreshold;
 exports.countBelowThreshold = countBelowThreshold; 
 exports.printReverseList = printReverseList;
 exports.getIndex = getIndex;
+exports.isInAscending = isInAscending;
+exports.extract = extract;
+exports.isInDescending = isInDescending;
+exports.unique = unique;

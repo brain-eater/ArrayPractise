@@ -1,12 +1,15 @@
 let assert= require("assert");
 let lib = require("./arrayLib");
 let {selectAlternateNum} = lib;
+let {isInAscending} = lib;
+let {isInDescending} = lib;
 let {generateFibSeries} = lib;
 let {fibReverse} = lib;
 let {max} = lib;
 let {min} = lib;
 let {countEven} = lib;
 let {countOdd} = lib;
+let {union} = lib;
 let {average} = lib;
 let {mapLengths} = lib;
 let {countAboveThreshold} = lib;
@@ -14,13 +17,17 @@ let {countBelowThreshold} = lib;
 let {printReverseList} = lib;
 let {reverseList} = lib;
 let {getIndex} = lib;
+let {extract} = lib;
+let {unique} = lib; 
 
 //to test reverseList(list)
 assert.deepEqual(reverseList([2,4,2,4,6,1]),[1,6,4,2,4,2]);
 assert.deepEqual(reverseList(["Tilak","Puli"]),["Puli","Tilak"]);
 
 //to test getIndex(element)
-assert.deepEqual(getIndex([2,4],4),2);
+assert.deepEqual(getIndex([2,2],2),0);
+assert.deepEqual(getIndex([2,4,4,3,5,3],5),4);
+assert.deepEqual(getIndex([2,4,4,3,5,3],9),-1);
 
 //to test selectAlternateNum()
 assert.deepEqual(selectAlternateNum([1,2]),[1]);
@@ -77,4 +84,26 @@ assert.deepEqual(countAboveThreshold([2,3,5,1,53],3),2);
 assert.deepEqual(countBelowThreshold([2,3,5],3),1);
 assert.deepEqual(countBelowThreshold([2,3,5,1,53],3),2);
 
+//to test isInAscending(numbers)
+assert.deepEqual(isInAscending([24,234,42]),false);
+assert.deepEqual(isInAscending([24,34,42]),true);
+assert.deepEqual(isInAscending([204,34,2]),false);
 
+//to test isInDescending(numbers)
+assert.deepEqual(isInDescending([24,234,42]),false);
+assert.deepEqual(isInDescending([24,34,42]),false);
+assert.deepEqual(isInDescending([204,34,2]),true);
+
+//to test extract(number)
+assert.deepEqual(extract(12),[1,2]);
+assert.deepEqual(extract(1),[1]);
+assert.deepEqual(extract(2131),[2,1,3,1]);
+
+//to test unique(numbers)
+assert.deepEqual(unique([2,2]),[2]);
+assert.deepEqual(unique([2]),[2]);
+assert.deepEqual(unique([2,12,2,2,3,3,1]),[2,12,3,1]);
+assert.deepEqual(unique([2,12,3,1]),[2,12,3,1]);
+
+//to test union(set1,set2)
+assert.deepEqual(union([1,2,3,5,7],[2,3,4,5]),[2,3,5]);
